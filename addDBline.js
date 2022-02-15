@@ -8,7 +8,7 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const firebase = require("firebase/app");
-require("firebase/firestore");
+const firebasestore = require("firebase/firestore");
 
 const firebaseConfig = {
 // Configの部分を貼り付ける
@@ -21,7 +21,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+const db = firebasestore.firestore();
 
 // ローカル（自分のPC）でサーバーを公開するときのポート番号です
 const PORT = process.env.PORT || 3000;
