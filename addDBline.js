@@ -28,8 +28,8 @@ const PORT = process.env.PORT || 3000;
 
 // Messaging APIで利用するクレデンシャル（秘匿情報）です。
 const config = {
-  channelSecret: 'Messaging APIのchannelSecretを貼り付ける',
-  channelAccessToken: 'Messaging APIのchannelAccessTokenを貼り付ける'
+  channelSecret: 'e2bd9638f7a174e88fed462a9978fd0d',
+  channelAccessToken: 'jJzVfDPO1vmLUHAEfh47Pt1WkUxgTS9IppPV30hTABsaWD1R/PqTyB8IePJDXkm/h4ehoFXLhRJJfLFCA2t+X0Akl3q/46XrgxM0e+9OQQ76lIKcSeYJB3p5m3gpoGnBV72PQUkFqEHFabgXWWGAIgdB04t89/1O/w1cDnyilFU='
 };
 
 // ########################################
