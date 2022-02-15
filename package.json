@@ -20,6 +20,7 @@
   "homepage": "https://github.com/yoko-inaba/mylinebot#readme",
   "dependencies": {
     "@line/bot-sdk": "^7.4.0",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "firebase": "^9.6.6"
   }
 }
