@@ -9,13 +9,16 @@ const express = require('express');
 const line = require('@line/bot-sdk');
 const firebase = require('firebase-admin');
 require('firebase/firestore');
+require("dotenv").config();
 //const { firestore } = require('firebase-admin');
 //import { initializeApp } from 'firebase/app';
 //import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
+console.log(process.env.REACT_APP_FIREBASE_KEY);
+
 const firebaseConfig = {
 // Configの部分を貼り付ける
-  apiKey: "AIzaSyAgRnmf5JHw_0LvlWJKdx2YcxOaa0zj1Y8",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,   //    "AIzaSyAgRnmf5JHw_0LvlWJKdx2YcxOaa0zj1Y8",
   authDomain: "mylinebot-fe1a4.firebaseapp.com",
   projectId: "mylinebot-fe1a4",
   storageBucket: "mylinebot-fe1a4.appspot.com",
@@ -117,7 +120,7 @@ const app = express();
 
 // HTTP GETによって '/' のパスにアクセスがあったときに 'Hello LINE BOT! (HTTP GET)' と返事します
 // これはMessaging APIとは関係のない確認用のものです
-app.get('/', (req, res) => res.send('Hello LINE BOT! (HTTP GET)'));
+app.get('/', (req, res) => res.send('Hello LINE BOT! (HTTP GET)' + process.env.REACT_APP_FIREBASE_KEY));
 
 // HTTP POSTによって '/webhook' のパスにアクセスがあったら、POSTされた内容に応じて様々な処理をします
 app.post('/webhook', line.middleware(config), (req, res) => {
