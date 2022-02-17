@@ -8,7 +8,7 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const firebase = require('firebase-admin');
-//require("firebase/firestore");
+require('firebase/firestore');
 //const { firestore } = require('firebase-admin');
 //import { initializeApp } from 'firebase/app';
 //import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
@@ -31,8 +31,7 @@ const db = firebase.firestore();
 //const db = getFirestore(app); getFirestore.Firestore();
 
 
-// ローカル（自分のPC）でサーバーを公開するときのポート番号です
-const PORT = process.env.PORT || 3000;
+console.log(`aaaaa`);
 
 // Messaging APIで利用するクレデンシャル（秘匿情報）です。
 const config = {
@@ -40,12 +39,17 @@ const config = {
   channelAccessToken: 'jJzVfDPO1vmLUHAEfh47Pt1WkUxgTS9IppPV30hTABsaWD1R/PqTyB8IePJDXkm/h4ehoFXLhRJJfLFCA2t+X0Akl3q/46XrgxM0e+9OQQ76lIKcSeYJB3p5m3gpoGnBV72PQUkFqEHFabgXWWGAIgdB04t89/1O/w1cDnyilFU='
 };
 
+console.log(`bbbbb`);
+
 // ########################################
 //  LINEサーバーからのWebhookデータを処理する部分
 // ########################################
 
 // LINE SDKを初期化します
 const client = new line.Client(config);
+
+console.log(`ccccc`);
+
 
 // LINEサーバーからWebhookがあると「サーバー部分」から以下の "handleEvent" という関数が呼び出されます
 async function handleEvent(event) {
@@ -120,6 +124,9 @@ app.post('/webhook', line.middleware(config), (req, res) => {
   // 関数から戻ってきたデータをそのままLINEサーバーに「レスポンス」として返します
   Promise.all(req.body.events.map(handleEvent)).then((result) => res.json(result));
 });
+
+// ローカル（自分のPC）でサーバーを公開するときのポート番号です
+const PORT = process.env.PORT || 3000;
 
 // 最初に決めたポート番号でサーバーをPC内だけに公開します
 // （環境によってはローカルネットワーク内にも公開されます）
