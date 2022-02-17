@@ -83,6 +83,7 @@ async function handleEvent(event) {
   console.log(dgDay);
   console.log(now);
 
+  /*  
   const res = db.collection(event.source.userId).doc();
   await res.set({
     dgname: event.message.text,
@@ -90,7 +91,7 @@ async function handleEvent(event) {
     time: now
   });
 
-  /*  
+
   await db.collection(event.source.userId).add({
     dgname : event.message.text,
     dgday: dgDay,
@@ -120,7 +121,7 @@ const app = express();
 
 // HTTP GETによって '/' のパスにアクセスがあったときに 'Hello LINE BOT! (HTTP GET)' と返事します
 // これはMessaging APIとは関係のない確認用のものです
-app.get('/', (req, res) => res.send('Hello LINE BOT! (HTTP GET)' + process.env.REACT_APP_FIREBASE_KEY));
+app.get('/', (req, res) => res.send('Hello LINE BOT! (HTTP GET)'));
 
 // HTTP POSTによって '/webhook' のパスにアクセスがあったら、POSTされた内容に応じて様々な処理をします
 app.post('/webhook', line.middleware(config), (req, res) => {
