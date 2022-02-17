@@ -74,12 +74,12 @@ async function handleEvent(event) {
   const s = now.getSeconds();       //秒
   //日時表示文字列の作成
   const time = month + "/" + date + " " + h + ":" + m + ":" + s;
-  const dgDay = time
+  const dgDay = time;
 
   console.log(event.message.text);
   console.log(dgDay);
   console.log(now);
-
+  /*
   const res = db.collection(event.source.userId).doc();
   await res.set({
     dgname : event.message.text,
@@ -87,7 +87,7 @@ async function handleEvent(event) {
     time: now
   });
 
-  /*
+  
   await db.collection(event.source.userId).add({
     dgname : event.message.text,
     dgday: dgDay,
@@ -99,7 +99,7 @@ async function handleEvent(event) {
   return client.replyMessage(event.replyToken,[
      {
     type: 'text',
-    text: '『' + event.message.text + '』' + 'を診断名として入力しました。' // ← ここに入れた言葉が実際に返信されます
+    text: '『' + event.message.text + '』' + dgDay +  + 'を診断名として入力しました。' // ← ここに入れた言葉が実際に返信されます
   },{
     type: 'text',
     text: '下のメニューからご確認ください。' // ← ここに入れた言葉が実際に返信されます
