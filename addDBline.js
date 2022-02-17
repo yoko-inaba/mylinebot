@@ -7,7 +7,7 @@
 // パッケージを使用します
 const express = require('express');
 const line = require('@line/bot-sdk');
-const firebase = require('firebase-admin');
+const firebase = require('firebase');
 require('firebase/firestore');
 //const { firestore } = require('firebase-admin');
 //import { initializeApp } from 'firebase/app';
