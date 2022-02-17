@@ -81,7 +81,7 @@ async function handleEvent(event) {
   console.log(now);
   /*
   const res = db.collection(event.source.userId).doc();
-  await res.set({
+  res.set({
     dgname : event.message.text,
     dgday: dgDay,
     time: now
@@ -99,7 +99,7 @@ async function handleEvent(event) {
   return client.replyMessage(event.replyToken,[
      {
     type: 'text',
-    text: '『' + event.message.text + '』' + dgDay +  + 'を診断名として入力しました。' // ← ここに入れた言葉が実際に返信されます
+    text:  event.source.userId + '『' + event.message.text + '』' + dgDay + '-' + now + 'を診断名として入力しました。' // ← ここに入れた言葉が実際に返信されます
   },{
     type: 'text',
     text: '下のメニューからご確認ください。' // ← ここに入れた言葉が実際に返信されます
