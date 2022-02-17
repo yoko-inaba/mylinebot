@@ -7,8 +7,11 @@
 // パッケージを使用します
 const express = require('express');
 const line = require('@line/bot-sdk');
-const firebase = require("firebase/app");
-/////require("firebase/firestore");
+const firebase = require('firebase-admin');
+//require("firebase/firestore");
+//const { firestore } = require('firebase-admin');
+//import { initializeApp } from 'firebase/app';
+//import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
 // Configの部分を貼り付ける
@@ -20,8 +23,13 @@ const firebaseConfig = {
   appId: "1:106454092146:web:71f04bd7e998c0478b35eb"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+/////firebase.initializeApp(firebaseConfig);
 /////const db = firebase.firestore();
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+//const db = getFirestore(app); getFirestore.Firestore();
+
 
 // ローカル（自分のPC）でサーバーを公開するときのポート番号です
 const PORT = process.env.PORT || 3000;
@@ -63,15 +71,13 @@ async function handleEvent(event) {
   //日時表示文字列の作成
   const time = month + "/" + date + " " + h + ":" + m + ":" + s;
   const dgDay = time
- ////////////////////////
-  /*
+
   await db.collection(event.source.userId).add({
     dgname : event.message.text,
     dgday: dgDay,
     time: now
   });
-*/
-////////////////////////////
+
 
   // 「テキストメッセージ」であれば、受信したテキストをそのまま返事します
   return client.replyMessage(event.replyToken,[
