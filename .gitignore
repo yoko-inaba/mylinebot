@@ -1,6 +1,9 @@
 .vscode
-/node_modules
+.bin
 .DS_Store
+.env
+package-lock.json
+/node_modules
 /dist
 .netlify
 memo.txt
