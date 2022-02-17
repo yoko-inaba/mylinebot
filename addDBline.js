@@ -19,11 +19,11 @@ require("dotenv").config();
 const firebaseConfig = {
 // Configの部分を貼り付ける
   apiKey: process.env.REACT_APP_FIREBASE_KEY,   //    "AIzaSyAgRnmf5JHw_0LvlWJKdx2YcxOaa0zj1Y8",
-  authDomain: "mylinebot-fe1a4.firebaseapp.com",
-  projectId: "mylinebot-fe1a4",
-  storageBucket: "mylinebot-fe1a4.appspot.com",
-  messagingSenderId: "106454092146",
-  appId: "1:106454092146:web:71f04bd7e998c0478b35eb"
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,   //    "mylinebot-fe1a4.firebaseapp.com",
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,   //    "mylinebot-fe1a4",
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,   //    "mylinebot-fe1a4.appspot.com",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,   //    "106454092146",
+  appId: process.env.REACT_APP_FIREBASE_APP_ID   //    "1:106454092146:web:71f04bd7e998c0478b35eb"
 };
 // Initialize Firebase
 /////firebase.initializeApp(firebaseConfig);
@@ -38,8 +38,8 @@ console.log(`aaaaa`);
 
 // Messaging APIで利用するクレデンシャル（秘匿情報）です。
 const config = {
-  channelSecret: 'e2bd9638f7a174e88fed462a9978fd0d',
-  channelAccessToken: 'jJzVfDPO1vmLUHAEfh47Pt1WkUxgTS9IppPV30hTABsaWD1R/PqTyB8IePJDXkm/h4ehoFXLhRJJfLFCA2t+X0Akl3q/46XrgxM0e+9OQQ76lIKcSeYJB3p5m3gpoGnBV72PQUkFqEHFabgXWWGAIgdB04t89/1O/w1cDnyilFU='
+  channelSecret: process.env.REACT_APP_LINE_CHANNEL_SECRET,   //'e2bd9638f7a174e88fed462a9978fd0d',
+  channelAccessToken: process.env.REACT_APP_LINE_CHANNEL_ACCESSTOKEN   //'jJzVfDPO1vmLUHAEfh47Pt1WkUxgTS9IppPV30hTABsaWD1R/PqTyB8IePJDXkm/h4ehoFXLhRJJfLFCA2t+X0Akl3q/46XrgxM0e+9OQQ76lIKcSeYJB3p5m3gpoGnBV72PQUkFqEHFabgXWWGAIgdB04t89/1O/w1cDnyilFU='
 };
 
 console.log(`bbbbb`);
@@ -121,7 +121,7 @@ const app = express();
 
 // HTTP GETによって '/' のパスにアクセスがあったときに 'Hello LINE BOT! (HTTP GET)' と返事します
 // これはMessaging APIとは関係のない確認用のものです
-app.get('/', (req, res) => res.send('Hello LINE BOT! (HTTP GET)'));
+app.get('/', (req, res) => res.send('Hello LINE BOT! (HTTP GET)' + process.env.REACT_APP_LINE_CHANNEL_ACCESSTOKEN));
 
 // HTTP POSTによって '/webhook' のパスにアクセスがあったら、POSTされた内容に応じて様々な処理をします
 app.post('/webhook', line.middleware(config), (req, res) => {
