@@ -76,12 +76,16 @@ async function handleEvent(event) {
   const time = month + "/" + date + " " + h + ":" + m + ":" + s;
   const dgDay = time
 
+  console.log(event.message.text);
+  console.log(dgDay);
+  console.log(now);
+  /*
   await db.collection(event.source.userId).add({
     dgname : event.message.text,
     dgday: dgDay,
     time: now
   });
-
+ */
 
   // 「テキストメッセージ」であれば、受信したテキストをそのまま返事します
   return client.replyMessage(event.replyToken,[
