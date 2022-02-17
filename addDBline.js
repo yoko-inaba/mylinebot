@@ -83,7 +83,7 @@ async function handleEvent(event) {
   console.log(dgDay);
   console.log(now);
 
-  /*  
+ 
   const res = db.collection(event.source.userId).doc();
   await res.set({
     dgname: event.message.text,
@@ -91,7 +91,7 @@ async function handleEvent(event) {
     time: now
   });
 
-
+ /*  
   await db.collection(event.source.userId).add({
     dgname : event.message.text,
     dgday: dgDay,
