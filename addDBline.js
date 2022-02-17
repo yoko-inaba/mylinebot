@@ -7,14 +7,14 @@
 // パッケージを使用します
 const express = require('express');
 const line = require('@line/bot-sdk');
-const firebase = require('firebase-admin');
-require('firebase/firestore');
+
+
+const firebase = require('firebase/compat/app');
+require('firebase/compat/firestore');
 require("dotenv").config();
 //const { firestore } = require('firebase-admin');
 //import { initializeApp } from 'firebase/app';
 //import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-
-console.log(process.env.REACT_APP_FIREBASE_KEY);
 
 const firebaseConfig = {
 // Configの部分を貼り付ける
