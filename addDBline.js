@@ -103,7 +103,7 @@ async function handleEvent(event) {
   return client.replyMessage(event.replyToken,[
      {
     type: 'text',
-    text:  event.source.userId + '『' + event.message.text + '』' + dgDay + '-' + now + 'を診断名として入力しました。' // ← ここに入れた言葉が実際に返信されます
+    text:  '『' + event.message.text + '』' + dgDay + '-' + now + 'をメモ名として入力しました。' // ← ここに入れた言葉が実際に返信されます
   },{
     type: 'text',
     text: '下のメニューからご確認ください。' // ← ここに入れた言葉が実際に返信されます
